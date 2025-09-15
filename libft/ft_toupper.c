@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/11 12:25:48 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/11 12:32:29 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
-
-void	exit_error(char *message);
-
-#endif
+int	ft_toupper(int ch)
+{
+	if (ch >= 'a' && ch <= 'z')
+		ch -= 32;
+	return (ch);
+}

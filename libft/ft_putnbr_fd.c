@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/15 16:18:05 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/15 17:53:23 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
 
-void	exit_error(char *message);
-
-#endif
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+		if (n == INT_MIN)
+		{
+			write (fd, "2", 1);
+			n = 147483648;
+		}
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + '0';
+	write (fd, &c, 1);
+}

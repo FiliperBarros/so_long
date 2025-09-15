@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/15 13:57:42 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/18 12:24:43 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
+{
+	unsigned int	i;
+	char			*str;
+	int				str_len;
 
-void	exit_error(char *message);
-
-#endif
+	i = 0;
+	if (!s)
+		return (NULL);
+	str_len = ft_strlen(s);
+	str = malloc (sizeof(char) * (str_len + 1));
+	if (!str)
+		return (NULL);
+	while (s[i])
+	{
+		str[i] = (*f)(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

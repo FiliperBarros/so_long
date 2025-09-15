@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/11 18:10:51 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/14 15:34:01 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
+void	*ft_calloc(size_t n, size_t size)
+{
+	void	*array;
+	size_t	len;
 
-void	exit_error(char *message);
-
-#endif
+	len = n * size;
+	array = malloc (len);
+	if (!array)
+		return (NULL);
+	ft_bzero((array), len);
+	return (array);
+}

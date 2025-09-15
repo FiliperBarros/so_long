@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/11 13:29:45 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/15 15:50:19 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*ptr;
 
-void	exit_error(char *message);
-
-#endif
+	ptr = 0;
+	while (*s)
+	{
+		if (*s == ((unsigned char)c))
+		{
+			ptr = (char *)s;
+		}
+		s++;
+	}
+	if (*s == ((unsigned char)c))
+		ptr = (char *)s;
+	return (ptr);
+}

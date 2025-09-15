@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */	
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/12 16:13:36 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/12 16:26:14 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "libft.h"
-
-void	exit_error(char *message);
-
-#endif
+void	exit_error(char *message)
+{
+	ft_printf("%s\n", message);
+	exit(EXIT_FAILURE);
+}

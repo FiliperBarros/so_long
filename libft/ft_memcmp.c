@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 11:40:31 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/11 16:00:13 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/04/11 16:14:14 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft.h"
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
+{
+	unsigned char	*s1;
+	unsigned char	*s2;
+	size_t			i;
 
-void	exit_error(char *message);
-
-#endif
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	i = 0;
+	if (n <= 0)
+		return (0);
+	while (s1[i] == s2[i] && i + 1 < n)
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
