@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:09:27 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/12 16:38:14 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:11:10 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const	char *s);
+
+//recently added
+size_t	ft_strclen(const	char *s, char c);
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);

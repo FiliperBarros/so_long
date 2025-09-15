@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 15:47:58 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/15 15:09:57 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/15 15:11:13 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include <stddef.h>
 
-# include "libft.h"
-# include "fcntl.h"
-
-void	exit_error(char *message);
-
-typedef struct s_map
+size_t	ft_strclen(const	char *s, char c)
 {
-	char	**grid;
-	size_t 	rows;
-	size_t 	cols;
-}		t_map;
+	size_t	i;
 
-typedef struct s_game
-{
-	t_map	map;
-}		t_game;
-
-#endif
+	i = 0;
+	while (s[i] || s[i] == c)
+		i++;
+	return (i);
+}

@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 17:24:13 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/15 11:48:10 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/15 15:11:37 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS += ft_isalnum.c
 SRCS += ft_isascii.c
 SRCS += ft_isprint.c
 SRCS += ft_strlen.c
+SRCS += ft_strclen.c
 SRCS += ft_memset.c
 SRCS += ft_bzero.c
 SRCS += ft_memcpy.c

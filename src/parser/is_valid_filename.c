@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   is_valid_filename.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 15:47:58 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/15 16:38:57 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/15 16:39:18 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "libft.h"
-# include "fcntl.h"
-
-void	exit_error(char *message);
-
-typedef struct s_map
+void	is_valid_filename(char *filename)
 {
-	char	**grid;
-	size_t 	rows;
-	size_t 	cols;
-}		t_map;
+	int	i;
 
-typedef struct s_game
-{
-	t_map	map;
-}		t_game;
-
-#endif
+	i = ft_strlen(filename);
+	if(ft_strlen(filename) <= 4)
+		exit_error("Please, insert a valid file\n");
+	if(ft_strncmp(filename + i - 4, ".ber", 4))
+		exit_error("Please, insert a file named <map_name.ber>\n");
+}
