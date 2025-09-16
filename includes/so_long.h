@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 15:47:58 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:14:55 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "libft.h"
 # include "fcntl.h"
-
-void	exit_error(char *message);
 
 typedef struct s_map
 {
@@ -29,5 +27,10 @@ typedef struct s_game
 {
 	t_map	map;
 }		t_game;
+
+void	check_filename(char *filename);
+void	validate_map(char *filename, t_game *game);
+void	create_grid(int fd, t_game *game);
+void	exit_error(char *message);
 
 #endif

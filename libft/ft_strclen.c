@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:09:57 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 15:11:13 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:02:44 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strclen(const	char *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (s[i] || s[i] == c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }

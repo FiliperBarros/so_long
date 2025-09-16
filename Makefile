@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/15 16:46:20 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/15 20:09:07 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 #Compiler and flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g\
+CFLAGS = -Wall -Werror -Wextra -g -fPIE\
 		$(SO_LONG_INC) \
 		$(LIBFT_INC) \
 		$(GET_NEXT_LINE_INC) \
-		$(FT_PRINTF_INC)
+		$(FT_PRINTF_INC)./
 
 #Source and objects Directories
 SRC_DIR = ./src
@@ -31,7 +31,9 @@ OBJ_DIR = ./objects
 
 #Source files
 SRC_FILES = \
-			is_valid_map.c \
+			main.c \
+			check_filename.c \
+			validate_map.c \
 			exit_error.c
 
 #Converts the source files in object files

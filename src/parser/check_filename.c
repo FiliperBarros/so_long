@@ -6,13 +6,13 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:38:57 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 16:39:18 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:08:26 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	is_valid_filename(char *filename)
+void	check_filename(char *filename)
 {
 	int	i;
 

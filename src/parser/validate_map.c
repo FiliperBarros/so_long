@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_map.c                                     :+:      :+:    :+:   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:37:19 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 16:49:00 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/16 10:34:15 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,26 @@
 // 	// check_valid_exit;
 // }
 
-void	check_cols(int fd, t_game *game)
+void	validate_map(char *filename, t_game *game)
+{
+	int fd;
+	char *in_line_map;
+	
+	fd = open(filename,O_RDONLY);
+	ft_printf("fd: %i\n", fd);
+	if (!fd)
+		exit_error("File missing or access denied \n");
+		
+	check_cols(fd, game);
+}
+void	create_grid(int fd, t_game *game)
 {
 	char	*line;
 	
 	line = get_next_line(fd);
+	ft_printf("string: %s\n", line);
 	game->map.cols = ft_strclen(line, '\n');
+	ft_printf("%i\n", game->map.cols);
 	if (game->map.cols < 3)
 	{	
 		free(line);
@@ -51,17 +65,23 @@ void	check_cols(int fd, t_game *game)
 		game->map.rows++;
 		free(line);
 		line = get_next_line(fd);
+		ft_printf("rows: %i\n", game->map.rows);
 	}
-	exit_error("success");
 	close(fd);
 }
-int	main(void)
-{
-	t_game game;
-	
-	int	fd = open("teste",O_RDONLY);
-	check_cols(fd, &game);
-}	
+
+// void	check_walls(int fd, t_game *game)
+// {
+// 	char	**grid;
+// 	int		i;
+// 	char	*line;
+
+// 	i = 0;
+// 	while (i < game->map.rows)	
+// 	{
+// 		line = get_next_line(fd)
+		
+// }
 	
 //check the size 
 //check the minimum flags 1exit 1 starting position and 1 collectible
