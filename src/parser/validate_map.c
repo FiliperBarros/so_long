@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:37:19 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/16 10:34:15 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:15:58 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	validate_map(char *filename, t_game *game)
 	ft_printf("fd: %i\n", fd);
 	if (!fd)
 		exit_error("File missing or access denied \n");
-		
-	check_cols(fd, game);
+	in_line_map = create_in_line_file(filename);
+	ft_printf("in_line_file : %s", in_line_map);
+	check_map_size(fd, game);
 }
-void	create_grid(int fd, t_game *game)
+void	check_map_size(int fd, t_game *game)
 {
 	char	*line;
 	
@@ -77,10 +78,17 @@ void	create_grid(int fd, t_game *game)
 // 	char	*line;
 
 // 	i = 0;
-// 	while (i < game->map.rows)	
+// 	while (i < game->map.rows)
 // 	{
-// 		line = get_next_line(fd)
+// 		line = get_next_line(fd);
+// 		while ( j < ft_strclen(line, '\n'))
+// 		{
+// 			if (line[j] != '1')
+// 				exit_error("Error\n");
+// 			j++;
+// 		}
 		
+// 	}
 // }
 	
 //check the size 

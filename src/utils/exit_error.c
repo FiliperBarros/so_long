@@ -12,8 +12,8 @@
 
 #include "so_long.h"
 
-void	exit_error(char *message)
+void	exit_error(char *error_message)
 {
-	ft_printf("%s\n", message);
+	ft_putstr_fd(error_message, 2);
 	exit(EXIT_FAILURE);
 }

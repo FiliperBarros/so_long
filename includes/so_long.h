@@ -6,15 +6,48 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 20:14:55 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:14:06 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft.h"
+/******************************************************************************/
+/*                                  Libraries                                 */
+/******************************************************************************/
 # include "fcntl.h"
+# include "libft.h"
+
+/******************************************************************************/
+/*                               ENUMS                                        */
+/******************************************************************************/
+typedef enum e_tile
+{
+	WALL        = '1',
+	SPACE       = '0',
+	EXIT        = 'E',
+	COLLECTIBLE = 'C',
+	PLAYER      = 'P',
+	VISITED     = 'V'
+}	t_tile;
+
+typedef enum e_key
+{
+	KEY_W		= 119,
+	KEY_A		= 97,
+	KEY_S		= 115,
+	KEY_D		= 100,
+	KEY_ESC		= 65307,
+	KEY_UP		= 65362,
+	KEY_LEFT	= 65361,
+	KEY_DOWN	= 65364,
+	KEY_RIGHT	= 65363,
+}	t_key;
+
+/******************************************************************************/
+/*                               STRUCTS                                      */
+/******************************************************************************/
 
 typedef struct s_map
 {
@@ -28,9 +61,20 @@ typedef struct s_game
 	t_map	map;
 }		t_game;
 
+
+/******************************************************************************/
+/*                               PARSER                                       */
+/******************************************************************************/
+
 void	check_filename(char *filename);
 void	validate_map(char *filename, t_game *game);
-void	create_grid(int fd, t_game *game);
-void	exit_error(char *message);
+void	check_map_size(int fd, t_game *game);
+
+/******************************************************************************/
+/*                               UTILS                                        */
+/******************************************************************************/
+
+char	*create_in_line_file(char *filename);
+void	exit_error(char *error_message);
 
 #endif

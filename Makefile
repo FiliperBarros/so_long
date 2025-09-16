@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/15 20:09:07 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/16 17:16:23 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC_FILES = \
 			main.c \
 			check_filename.c \
 			validate_map.c \
-			exit_error.c
+			exit_error.c \
+			create_in_line_file.c
 
 #Converts the source files in object files
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
