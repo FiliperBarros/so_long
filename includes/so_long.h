@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 16:36:12 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/17 22:32:19 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 /******************************************************************************/
 /*                               ENUMS                                        */
 /******************************************************************************/
+
 typedef enum e_tile
 {
 	WALL        = '1',
@@ -70,12 +71,12 @@ typedef struct s_game
 /*                               PARSER                                       */
 /******************************************************************************/
 
-void	parser(char **argv, t_game *game);
 void	check_filename(char *filename);
-void	check_valid_chars(t_game *game);
-void	validate_map(char *filename, t_game *game);
 void	check_map_size(t_game *game);
+void	check_valid_chars(t_game *game);
 void	create_map_grid(char *filename, t_game *game);
+void	parser(char **argv, t_game *game);
+void	validate_map(char *filename, t_game *game);
 
 /******************************************************************************/
 /*                               UTILS                                        */
