@@ -6,90 +6,72 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:37:19 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/16 17:15:58 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:33:30 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// void	create_in_line_map(int fd)
-// {
-// 	get_next_line(fd)
-// }
-// void	is_valid_map(char *filename, t_game *game)
-// {
-// 	int	fd;
-// 	char *in_line_map;
+void	create_map_grid(char *filename, t_game *game)
+{
+	char *inline_file;
+
+	inline_file = file_to_inline(filename);
+	if (game->map.grid)
+		ft_free_array(game->map.grid);
+	game->map.grid = ft_split(inline_file, '\n');
+	free(inline_file);
+}
+
+void	check_walls(t_game	*game)
+{
+	int	i;
 	
-// 	fd = open(filename, O_RDONLY);
-// 	if (!fd)
-// 		exit_error("File missing or access denied\n");
-// 	check_cols(fd, game)
-// 	// check_map_size(in_line_map);
-// 	// check_flags;
-// 	// check_valid_exit;
-// }
+	i = 0;
+	while (game->map.grid[i])
+	{
+		if (game->map.grid[i][0] != WALL)
+			exit_error("Error\nMap is not surrounded by walls!\n", game);
+		if (game->map.grid[i][game->map.cols - 1] != WALL)
+			exit_error("Error\nMap is not surrounded by walls!\n", game);
+		i++;
+	}
+	i = 0;
+	while (game->map.grid[0][i] && game->map.grid[game->map.rows - 1][i])
+	{
+		if (game->map.grid[0][i] != WALL)
+			exit_error("Error\nMap is not surrounded by walls!\n", game);
+		if (game->map.grid[game->map.rows -1][i] != WALL)
+			exit_error("Error\nMap is not surrounded by walls!\n", game);
+		i++;
+	}
+}
+
+void	check_map_size(t_game *game)
+{
+	size_t i;
+	
+	i = 0;
+	while (game->map.grid[i])
+	{
+		game->map.cols = ft_strlen(game->map.grid[i]);
+		if (ft_strlen(game->map.grid[i]) != game->map.cols)
+			exit_error("Error\nNot a retangular map.\n", game);
+		i++;
+	}
+	game->map.rows = i;
+	ft_printf("cols_size: %i\n", game->map.cols);
+	ft_printf("rows_size: %i\n", game->map.rows);
+}
+
 
 void	validate_map(char *filename, t_game *game)
 {
-	int fd;
-	char *in_line_map;
-	
-	fd = open(filename,O_RDONLY);
-	ft_printf("fd: %i\n", fd);
-	if (!fd)
-		exit_error("File missing or access denied \n");
-	in_line_map = create_in_line_file(filename);
-	ft_printf("in_line_file : %s", in_line_map);
-	check_map_size(fd, game);
+	create_map_grid(filename, game);
+	check_map_size(game);
+	check_walls(game);
+	check_valid_chars(game);
 }
-void	check_map_size(int fd, t_game *game)
-{
-	char	*line;
-	
-	line = get_next_line(fd);
-	ft_printf("string: %s\n", line);
-	game->map.cols = ft_strclen(line, '\n');
-	ft_printf("%i\n", game->map.cols);
-	if (game->map.cols < 3)
-	{	
-		free(line);
-		exit_error("Invalid columns\n");
-	}
-	while (line)
-	{
-		if(ft_strclen(line, '\n') != game->map.cols)
-		{
-			free(line);
-			exit_error("Invalid columns\n");			
-		}
-		game->map.rows++;
-		free(line);
-		line = get_next_line(fd);
-		ft_printf("rows: %i\n", game->map.rows);
-	}
-	close(fd);
-}
-
-// void	check_walls(int fd, t_game *game)
-// {
-// 	char	**grid;
-// 	int		i;
-// 	char	*line;
-
-// 	i = 0;
-// 	while (i < game->map.rows)
-// 	{
-// 		line = get_next_line(fd);
-// 		while ( j < ft_strclen(line, '\n'))
-// 		{
-// 			if (line[j] != '1')
-// 				exit_error("Error\n");
-// 			j++;
-// 		}
-		
-// 	}
-// }
 	
 //check the size 
 //check the minimum flags 1exit 1 starting position and 1 collectible

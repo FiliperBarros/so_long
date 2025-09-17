@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/16 17:14:06 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:36:12 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "fcntl.h"
 # include "libft.h"
 
+
+# define TILES "01CEP"
 /******************************************************************************/
 /*                               ENUMS                                        */
 /******************************************************************************/
@@ -59,22 +61,29 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_map	map;
+	int		collectible_count;
+	int		exit_count;
+	int		player_count;
 }		t_game;
-
 
 /******************************************************************************/
 /*                               PARSER                                       */
 /******************************************************************************/
 
+void	parser(char **argv, t_game *game);
 void	check_filename(char *filename);
+void	check_valid_chars(t_game *game);
 void	validate_map(char *filename, t_game *game);
-void	check_map_size(int fd, t_game *game);
+void	check_map_size(t_game *game);
+void	create_map_grid(char *filename, t_game *game);
 
 /******************************************************************************/
 /*                               UTILS                                        */
 /******************************************************************************/
 
-char	*create_in_line_file(char *filename);
-void	exit_error(char *error_message);
+void	ft_free_array(char **array);
+void	exit_error(char *error_message, t_game *game);
+char	*file_to_inline(char *filename);
+void	check_args(int ac, char **argv);
 
 #endif

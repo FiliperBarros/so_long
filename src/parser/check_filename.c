@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_filename.c                                :+:      :+:    :+:   */
+/*   check_filename.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:38:57 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 20:08:26 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:57:41 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	check_filename(char *filename)
 
 	i = ft_strlen(filename);
 	if(ft_strlen(filename) <= 4)
-		exit_error("Please, insert a valid file\n");
+		exit_error("Please, insert a valid file\n", NULL);
 	if(ft_strncmp(filename + i - 4, ".ber", 4))
-		exit_error("Please, insert a file named <map_name.ber>\n");
+		exit_error("Please, insert a file named <map_name.ber>\n", NULL);
 }

@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/16 17:16:23 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/17 16:36:34 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,15 @@ OBJ_DIR = ./objects
 
 #Source files
 SRC_FILES = \
-			main.c \
 			check_filename.c \
+			parser.c \
 			validate_map.c \
+			validate_chars_map.c \
+			check_args.c \
 			exit_error.c \
-			create_in_line_file.c
+			file_to_inline.c \
+			ft_free_array.c \
+			main.c
 
 #Converts the source files in object files
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC_FILES))

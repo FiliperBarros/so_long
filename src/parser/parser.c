@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 18:10:51 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 12:55:58 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/17 15:02:54 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/17 15:58:09 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	*ft_calloc(size_t n, size_t size)
+void	parser(char **argv, t_game *game)
 {
-	void	*array;
-	size_t	len;
-
-	len = n * size;
-	array = malloc (len);
-	if (!array)
-		return (NULL);
-	ft_bzero((array), len);
-	return (array);
+	ft_bzero(game, sizeof(game));
+	validate_map(argv[1], game);
 }
