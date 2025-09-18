@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   teste_minilibx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 14:59:31 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 13:41:55 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/18 18:24:26 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/18 18:56:47 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-void	ft_bzero(void *s, size_t n)
-{
-	(void) ft_memset(s, 0, n);
-}
-/*
-#include <stdio.h>
+#include "so_long.h"
+#in
 
-int main(void)
+void	init_game(t_game *game)
 {
-	char string[10];
-	ft_bzero(string,5);
-	for (int i = 0; i < 10; ++i)
-	{
-		printf("%d\n",string[i]);
-	}
+	game->mlx = mlx
 }
-*/
+
+
+int	main()
+{
+	
+}

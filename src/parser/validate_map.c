@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:37:19 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 22:35:05 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:35:34 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	validate_map(char *filename, t_game *game)
 	check_map_size(game);
 	check_walls(game);
 	check_valid_chars(game);
-	check_valid_path(game);
+	check_valid_path(game, game->player.current_pos);
 }
 	
 //check the size 

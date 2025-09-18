@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:43:30 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 15:58:39 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/18 17:30:31 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,22 @@ char	*file_to_inline(char *filename)
 	
 	fd = open(filename, O_RDONLY);
 	if (!fd)
-		exit_error("File missing or access denied \n", NULL);
+		exit_error("File missing or access denied", NULL);
 	line= get_next_line(fd);
 	if (!ft_strclen(line, '\n'))
 	{
 		free(line);
-		exit_error("Error\nEmpty map.\n", NULL);
+		exit_error("Empty map.", NULL);
 	}
 	temp = ft_strdup("");
 	while (line)
 	{
-		in_line_file = ft_strjoin(temp, line);
+		// if(!ft_strnstr(line, "\n\n", ft_strlen(line)))
+		// 	exit_error("There is an empty row in your file!",NULL);
+		
+		/* if (ft_strtrim(line, "\n\n"))
+			exit_error("There is an empty row in your file!",NULL);
+		 */in_line_file = ft_strjoin(temp, line);
 		free(temp);
 		temp = in_line_file;
 		free(line);

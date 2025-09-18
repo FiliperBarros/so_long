@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map_grid.c                                  :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 22:26:40 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/18 17:31:49 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/04/09 14:59:31 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/18 15:53:45 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	create_map_grid(char *filename, t_game *game)
+void	ft_bzero(void *s, size_t n)
 {
-	char *inline_file;
-
-	inline_file = file_to_inline(filename);
-	if (ft_strtrim(inline_file, "\n\n"))
-		exit_error("There is an empty row in your file!",NULL);
-	if (game->map.grid)
-		ft_free_array(game->map.grid);
-	game->map.grid = ft_split(inline_file, '\n');
-	free(inline_file);
+	(void) ft_memset(s, 0, n);
 }
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	char string[10];
+	ft_bzero(string,5);
+	for (int i = 0; i < 10; ++i)
+	{
+		printf("%d\n",string[i]);
+	}
+}
+*/

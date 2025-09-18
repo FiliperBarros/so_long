@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_chars_map.c                               :+:      :+:    :+:   */
+/*   check_valid_chars.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:38:06 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 17:22:46 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:32:28 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@ static void	count_chars(t_game *game)
 	int	i;
 	int	j;
 
-
-	game->player_count = 0;
-	game->exit_count = 0;
-	game->collectible_count = 0;
 	i = 0;
 	while (game->map.grid[i])
 	{
@@ -28,7 +24,10 @@ static void	count_chars(t_game *game)
 		while (game->map.grid[i][j])
 		{
 			if (game->map.grid[i][j] == PLAYER)
+			{
+				game->player.current_pos = (t_player_pos){i, j};
 				game->player_count++;
+			}
 			else if (game->map.grid[i][j] == EXIT)
 				game->exit_count++;
 			else if (game->map.grid[i][j] == COLLECTIBLE)
