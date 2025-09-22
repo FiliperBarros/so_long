@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:09:27 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/15 15:11:10 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 11:52:42 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdlib.h>
 # include <limits.h>
 
-#include "ft_printf/ft_printf.h"
-#include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {

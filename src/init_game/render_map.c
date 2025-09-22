@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:19:14 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 17:55:20 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 10:19:32 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	render_map(t_game *game, int i, int j)
 		j = -1;
 		while (++j < (int)game->map.cols)
 		{
-			if (game->map.grid[i][j] == SPACE)
+			if (game->map.grid[i][j] == WALL)
+				tile = &game->wall_img;
+			else if (game->map.grid[i][j] == FLOOR)
 				tile = &game->floor_img;
 			else if (game->map.grid[i][j] == COLLECTIBLE)
 				tile = &game->coltbl_img;
 			else if (game->map.grid[i][j] == EXIT)
 				tile = &game->exit_img;
-			else if (game->map.grid[i][j] == SPACE)
-				tile = &game->floor_img;
 			else if (game->map.grid[i][j] == PLAYER)
 				tile = &game->player_img;
 			mlx_put_image_to_window(game->mlx, game->window, tile->img,

@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/21 15:35:34 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/22 11:45:26 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ MLX_INC				= -I$(MLX_DIR)
 
 #Source files
 SRC_FILES = \
-			initgame.c \
+			init_game.c \
 			load_textures.c \
 			render_map.c \
 			check_filename.c \
@@ -52,6 +52,9 @@ SRC_FILES = \
 			create_map_grid.c \
 			parser.c \
 			validate_map.c \
+			key_press.c \
+			print_moves.c \
+			run_game.c \
 			check_args.c \
 			exit_error.c \
 			file_to_inline.c \
@@ -62,7 +65,7 @@ SRC_FILES = \
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 # Tell make where to search for source files
-VPATH = $(SRC_DIR) $(SRC_DIR)/utils $(SRC_DIR)/parser $(SRC_DIR)/init_game
+VPATH = $(SRC_DIR) $(SRC_DIR)/utils $(SRC_DIR)/parser $(SRC_DIR)/init_game $(SRC_DIR)/run_game
 
 # **************************************************************************** #
 #                                MAKE RULES                                    #

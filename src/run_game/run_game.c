@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   run_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 16:13:52 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 12:51:46 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/22 11:18:46 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/22 12:42:12 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "../libs/minilibx/mlx.h"
 
-int	main(int ac, char **argv)
+void	run_game(t_game *game)
 {
-	t_game	game;
-
-	check_args(ac, argv);
-	parser(argv[1], &game);
-	init_game(&game);
-	run_game(&game);
-	return (0);
+	mlx_hook(game->window, 2, 0L, key_press, game);
+	mlx_loop(game->mlx);
 }

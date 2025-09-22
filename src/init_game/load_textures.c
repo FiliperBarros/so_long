@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:13:34 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 17:54:51 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 10:17:01 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	load_textures(t_game *g)
 {
-	g->floor_img.img = mlx_xpm_file_to_image(g->mlx, S_XPM, &g->x, &g->y); 
+	g->floor_img.img = mlx_xpm_file_to_image(g->mlx, F_XPM, &g->x, &g->y); 
 	g->wall_img.img = mlx_xpm_file_to_image(g->mlx, W_XPM, &g->x, &g->y);
 	g->coltbl_img.img = mlx_xpm_file_to_image(g->mlx, C_XPM, &g->x, &g->y);
 	g->exit_img.img = mlx_xpm_file_to_image(g->mlx, E_XPM, &g->x, &g->y);

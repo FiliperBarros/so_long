@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 16:13:52 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 12:51:46 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/22 11:40:03 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/22 13:00:52 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **argv)
+void	print_moves(t_game *game)
 {
-	t_game	game;
-
-	check_args(ac, argv);
-	parser(argv[1], &game);
-	init_game(&game);
-	run_game(&game);
-	return (0);
+	ft_putstr_fd("Moves:", 1);
+	ft_putnbr_fd(++game->moves_counter, 1);
+	ft_putchar('\n', 1);
 }

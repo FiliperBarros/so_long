@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:43:30 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/18 17:30:31 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:06:29 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*file_to_inline(char *filename)
 {
-	int fd;
-	char *in_line_file;
-	char *line;
-	char *temp;
-	
+	int		fd;
+	char	*in_line_file;
+	char	*line;
+	char	*temp;
+
 	fd = open(filename, O_RDONLY);
 	if (!fd)
 		exit_error("File missing or access denied", NULL);
-	line= get_next_line(fd);
+	line = get_next_line(fd);
 	if (!ft_strclen(line, '\n'))
 	{
 		free(line);
@@ -31,12 +31,7 @@ char	*file_to_inline(char *filename)
 	temp = ft_strdup("");
 	while (line)
 	{
-		// if(!ft_strnstr(line, "\n\n", ft_strlen(line)))
-		// 	exit_error("There is an empty row in your file!",NULL);
-		
-		/* if (ft_strtrim(line, "\n\n"))
-			exit_error("There is an empty row in your file!",NULL);
-		 */in_line_file = ft_strjoin(temp, line);
+		in_line_file = ft_strjoin(temp, line);
 		free(temp);
 		temp = in_line_file;
 		free(line);

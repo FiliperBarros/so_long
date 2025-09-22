@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initgame.c                                         :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:17:34 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 18:49:31 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:53:49 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,16 @@
 
 void	init_game(t_game *game)
 {
-	// int i;
-
-	// i = 0;
 	create_map_grid(game);
-	// while (game->map.grid[i])
-	// {
-	// 	ft_printf("%s\n", game->map.grid[i]);
-	// 	i++;
-	// }
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		exit_error("Mlx failed to open.", game);
 	load_textures(game);
 	game->window = mlx_new_window(game->mlx, game->map.cols * TILE_SIZE,
-		game->map.rows * TILE_SIZE, "so_long");	
+		game->map.rows * TILE_SIZE, "so_long");
 	if (!game->window)
 		exit_error("Couldn't create window!", game);
 	render_map(game, -1, -1);
-	mlx_loop(game->mlx);
 }
 
 

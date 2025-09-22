@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 17:54:37 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:53:12 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define TILE_SIZE	64
 # define TILES 		"01CEP"
 # define W_XPM		"textures/1.xpm"
-# define S_XPM		"textures/0.xpm"
+# define F_XPM		"textures/0.xpm"
 # define E_XPM		"textures/E.xpm"
 # define C_XPM		"textures/C.xpm"
 # define P1_XPM		"textures/P.xpm"
@@ -43,12 +43,12 @@
 
 typedef enum e_tile
 {
-	WALL        = '1',
-	SPACE       = '0',
-	EXIT        = 'E',
-	COLLECTIBLE = 'C',
-	PLAYER      = 'P',
-	VISITED     = 'V'
+	WALL		= '1',
+	FLOOR		= '0',
+	EXIT		= 'E',
+	COLLECTIBLE	= 'C',
+	PLAYER		= 'P',
+	VISITED		= 'V'
 }	t_tile;
 
 typedef enum e_key
@@ -68,32 +68,31 @@ typedef enum e_key
 /*                               STRUCTS                                      */
 /******************************************************************************/
 
-
-typedef	struct s_player_pos
+typedef struct s_player_pos
 {
 	int	x;
 	int	y;
-}				t_player_pos;
+}	t_player_pos;
 
 typedef struct s_player
 {
 	t_player_pos	current_pos;
 	t_player_pos	next_pos;
-}				t_player;
+}					t_player;
 
 typedef struct s_map
 {
 	char			**grid;
-	size_t 			rows;
-	size_t 			cols;
-}				t_map;
+	size_t			rows;
+	size_t			cols;
+}					t_map;
 
 typedef struct s_img
 {
-	void 			*img;
+	void			*img;
 	int				width;
 	int				height;
-}		t_img;
+}					t_img;
 
 typedef struct s_game
 {
@@ -102,6 +101,7 @@ typedef struct s_game
 	void			*window;
 	t_map			map;
 	t_player		player;
+	int				moves_counter;
 	int				collectible_count;
 	int				exit_count;
 	int				player_count;
@@ -112,12 +112,19 @@ typedef struct s_game
 	t_img			player_img;
 	int				x;
 	int				y;
-}				t_game;
+}					t_game;
+
+
+/******************************************************************************/
+/*                               INIT_GAME                                    */
+/******************************************************************************/
+void	init_game(t_game *game);
+void	render_map(t_game *game, int i, int j);
+void	load_textures(t_game *g);
 
 /******************************************************************************/
 /*                               PARSER                                       */
 /******************************************************************************/
-
 void	check_filename(char *filename);
 void	check_map_size(t_game *game);
 void	check_valid_chars(t_game *game);
@@ -128,6 +135,13 @@ void	parser(char *filename	, t_game *game);
 void	validate_map(t_game *game);
 
 /******************************************************************************/
+/*                               RUN_GAME                                     */
+/******************************************************************************/
+void	run_game(t_game *game);
+void	key_press(int key, t_game *game);
+void	print_moves(t_game *s_game);
+
+/******************************************************************************/
 /*                               UTILS                                        */
 /******************************************************************************/
 
@@ -135,10 +149,7 @@ void	check_args(int ac, char **argv);
 void	exit_error(char *error_message, t_game *game);
 char	*file_to_inline(char *filename);
 void	ft_free_array(char **array);
+void	free_game(t_game *game);
+void	exit_game(char *message, t_game *game);
 
-
-
-void	init_game(t_game *game);
-void	render_map(t_game *game, int i, int j);
-void	load_textures(t_game *g);
 #endif

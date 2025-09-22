@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:38:06 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 20:24:44 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 10:15:35 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	check_valid_chars(t_game *game)
 {
 	count_chars(game);
 	validate_chars_counter(game);
-	ft_printf("x: %d\n y: %d", game->player.current_pos.x, game->player.current_pos.y);
+	ft_printf("x: %d\n y: %d\n", game->player.current_pos.x, game->player.current_pos.y);
 }

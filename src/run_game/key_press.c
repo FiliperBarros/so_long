@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 16:13:52 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 12:51:46 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/22 11:23:23 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/22 13:01:34 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **argv)
+void	key_press(int keycode, t_game *game)
 {
-	t_game	game;
+	if (keycode == KEY_W || keycode == KEY_UP)
+	{
 
-	check_args(ac, argv);
-	parser(argv[1], &game);
-	init_game(&game);
-	run_game(&game);
-	return (0);
+	}
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
+	{
+		
+	}
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
+	{
+	
+	}
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
+	{
+	
+	}
+	else if (keycode == KEY_ESC)
+		exit_game("Don't let the Boss pigeon hungry!", game);
 }
