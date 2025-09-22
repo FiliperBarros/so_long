@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:34:24 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/18 16:57:20 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/21 20:07:24 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	check_valid_path(t_game *game, t_player_pos current_pos)
 	if (current_pos.y == game->player.current_pos.y
 		&& current_pos.x == game->player.current_pos.x)
 		if(collectible != game->collectible_count || exit != game->exit_count)
-		exit_error("Map has invalid path!", game);	
+		exit_error("Map has invalid path!", game);
 
 }

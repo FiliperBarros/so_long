@@ -6,18 +6,18 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:26:40 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/18 17:31:49 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/21 16:03:53 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	create_map_grid(char *filename, t_game *game)
+void	create_map_grid(t_game *game)
 {
 	char *inline_file;
 
-	inline_file = file_to_inline(filename);
-	if (ft_strtrim(inline_file, "\n\n"))
+	inline_file = file_to_inline(game->map_file);
+	if (ft_strnstr(inline_file, "\n\n", ft_strlen(inline_file)))
 		exit_error("There is an empty row in your file!",NULL);
 	if (game->map.grid)
 		ft_free_array(game->map.grid);

@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/18 19:12:49 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/21 17:54:37 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,25 @@
 /*                                  Libraries                                 */
 /******************************************************************************/
 # include "fcntl.h"
-# include "mlx.h"
 # include "libft.h"
+# include "mlx.h"
 
 /******************************************************************************/
 /*                               MACROS                                       */
 /******************************************************************************/
 
-# define TILES "01CEP"
-
+# define TILE_SIZE	64
+# define TILES 		"01CEP"
+# define W_XPM		"textures/1.xpm"
+# define S_XPM		"textures/0.xpm"
+# define E_XPM		"textures/E.xpm"
+# define C_XPM		"textures/C.xpm"
+# define P1_XPM		"textures/P.xpm"
+# define P2_XPM		"textures/P1.xpm"
+# define P3_XPM		"textures/P1.xpm"
+# define P4_XPM		"textures/P1.xpm"
+# define P5_XPM		"textures/P1.xpm"
+# define P6_XPM		"textures/P1.xpm"
 
 /******************************************************************************/
 /*                               ENUMS                                        */
@@ -73,27 +83,35 @@ typedef struct s_player
 
 typedef struct s_map
 {
-	char	**grid;
-	size_t 	rows;
-	size_t 	cols;
+	char			**grid;
+	size_t 			rows;
+	size_t 			cols;
 }				t_map;
 
 typedef struct s_img
 {
-	int	width;
-	int	height;
+	void 			*img;
+	int				width;
+	int				height;
 }		t_img;
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	t_map		map;
-	t_player	player;
-	t_img		b_sprite;
-	int			collectible_count;
-	int			exit_count;
-	int			player_count;
+	char			*map_file;
+	void			*mlx;
+	void			*window;
+	t_map			map;
+	t_player		player;
+	int				collectible_count;
+	int				exit_count;
+	int				player_count;
+	t_img			coltbl_img;
+	t_img			exit_img;
+	t_img			wall_img;
+	t_img			floor_img;
+	t_img			player_img;
+	int				x;
+	int				y;
 }				t_game;
 
 /******************************************************************************/
@@ -105,9 +123,9 @@ void	check_map_size(t_game *game);
 void	check_valid_chars(t_game *game);
 void	check_valid_path(t_game *game, t_player_pos current_pos);
 void	check_walls(t_game	*game);
-void	create_map_grid(char *filename, t_game *game);
-void	parser(char **argv, t_game *game);
-void	validate_map(char *filename, t_game *game);
+void	create_map_grid(t_game *game);
+void	parser(char *filename	, t_game *game);
+void	validate_map(t_game *game);
 
 /******************************************************************************/
 /*                               UTILS                                        */
@@ -118,4 +136,9 @@ void	exit_error(char *error_message, t_game *game);
 char	*file_to_inline(char *filename);
 void	ft_free_array(char **array);
 
+
+
+void	init_game(t_game *game);
+void	render_map(t_game *game, int i, int j);
+void	load_textures(t_game *g);
 #endif
