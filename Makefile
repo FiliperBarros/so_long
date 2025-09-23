@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/22 18:33:33 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/23 15:30:12 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 #Compiler and flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -fPIE\
+CFLAGS = -Wall -Werror -Wextra -g \
 		$(SO_LONG_INC) \
 		$(LIBFT_INC) \
 		$(MLX_INC)
@@ -44,6 +44,7 @@ SRC_FILES = \
 			init_game.c \
 			load_textures.c \
 			render_map.c \
+			check_args.c \
 			check_filename.c \
 			check_map_size.c \
 			check_valid_chars.c \
@@ -52,11 +53,13 @@ SRC_FILES = \
 			create_map_grid.c \
 			parser.c \
 			validate_map.c \
+			check_move.c \
 			key_press.c \
 			print_moves.c \
+			put_map_tile.c \
 			put_player_tile.c \
+			render_move.c \
 			run_game.c \
-			check_args.c \
 			exit_error.c \
 			exit_esc.c \
 			exit_game.c \
@@ -69,7 +72,7 @@ SRC_FILES = \
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 # Tell make where to search for source files
-VPATH = $(SRC_DIR) $(SRC_DIR)/utils $(SRC_DIR)/parser $(SRC_DIR)/init_game $(SRC_DIR)/run_game
+VPATH = $(SRC_DIR) $(SRC_DIR)/utils $(SRC_DIR)/parser $(SRC_DIR)/game
 
 # **************************************************************************** #
 #                                MAKE RULES                                    #
@@ -96,7 +99,7 @@ $(OBJ_DIR)/%.o: %.c
 clean:
 	rm -rf  $(OBJ_DIR)
 	@make -C $(LIBFT_DIR) clean
-	rm -f $(MLX_DIR)/*.o $(MLX_DIR)/*.a
+	rm -f $(MLX_DIR)/obj/*.o $(MLX_DIR)/*.a
 
 fclean: clean
 	rm -f $(NAME)
@@ -104,4 +107,4 @@ fclean: clean
 	
 re : fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re valgrind

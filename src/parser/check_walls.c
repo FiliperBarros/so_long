@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:27:04 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/17 22:27:23 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:09:25 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_walls(t_game	*game)
 {
 	int	i;
-	
+
 	i = 0;
 	while (game->map.grid[i])
 	{

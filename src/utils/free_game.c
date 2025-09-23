@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,12 +6,11 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 12:10:42 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 12:24:49 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:08:54 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../libs/minilibx/mlx.h"
 
 static void	free_textures(t_game *game)
 {
@@ -46,4 +44,3 @@ void	free_game(t_game *game)
 		}
 	}
 }
-

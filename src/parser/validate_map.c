@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 12:37:19 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/21 16:32:46 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:12:42 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ void	validate_map(t_game *game)
 	check_valid_chars(game);
 	check_valid_path(game, game->player.current_pos);
 }
-	

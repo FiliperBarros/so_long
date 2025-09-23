@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 16:13:52 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 17:47:46 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 11:56:18 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	main(int ac, char **argv)
 {
 	t_game	game;
 
-	check_args(ac, argv);
-	parser(argv[1], &game);
+	parser(ac, argv, &game);
 	init_game(&game);
 	run_game(&game);
 	return (0);

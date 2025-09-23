@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:38:06 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 10:15:35 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:11:04 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,19 @@ static void	count_chars(t_game *game)
 		i++;
 	}
 }
-static void validate_chars_counter(t_game *game)
+
+static void	validate_chars_counter(t_game *game)
 {
-	if(game->player_count != 1)
+	if (game->player_count != 1)
 		exit_error("Invalid number of players on the map", game);
 	if (game->exit_count != 1)
 		exit_error("Invalid number of exits on the map", game);
-	if(game->collectible_count < 1)
+	if (game->collectible_count < 1)
 		exit_error("Invalid number of collectibles on the map", game);
 }
+
 void	check_valid_chars(t_game *game)
 {
 	count_chars(game);
 	validate_chars_counter(game);
-	ft_printf("x: %d\n y: %d\n", game->player.current_pos.x, game->player.current_pos.y);
 }

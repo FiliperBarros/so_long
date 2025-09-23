@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 19:20:04 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/23 14:05:14 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 # define P_L_XPM	"textures/P.xpm"
 # define P_R_XPM	"textures/P1.xpm"
 # define P_U_XPM	"textures/P2.xpm"
-
 
 /******************************************************************************/
 /*                               ENUMS                                        */
@@ -62,22 +61,21 @@ typedef enum e_key
 	KEY_RIGHT	= 65363,
 }				t_key;
 
-
 typedef enum e_img_index
 {
 	RUN_LEFT		= 0,
 	RUN_RIGHT		= 1,
 	GO_UP			= 2,
 	GO_DOWN			= 2,
-}					s_img_index;
+}					t_img_index;
 
 /******************************************************************************/
 /*                               STRUCTS                                      */
 /******************************************************************************/
 typedef struct s_player_pos
 {
-	int	x;
 	int	y;
+	int	x;
 }	t_player_pos;
 
 typedef struct s_player
@@ -118,11 +116,10 @@ typedef struct s_game
 	t_img			exit_img;
 	t_img			wall_img;
 	t_img			floor_img;
-	t_img			player_img[3];
+	t_img			player_img[2];
 	int				x;
 	int				y;
 }					t_game;
-
 
 /******************************************************************************/
 /*                               INIT_GAME                                    */
@@ -134,28 +131,31 @@ void	load_textures(t_game *g);
 /******************************************************************************/
 /*                               PARSER                                       */
 /******************************************************************************/
+void	check_args(int ac, char **argv);
 void	check_filename(char *filename);
 void	check_map_size(t_game *game);
 void	check_valid_chars(t_game *game);
 void	check_valid_path(t_game *game, t_player_pos current_pos);
 void	check_walls(t_game	*game);
 void	create_map_grid(t_game *game);
-void	parser(char *filename	, t_game *game);
+void	parser(int ac, char **argv, t_game *game);
 void	validate_map(t_game *game);
 
 /******************************************************************************/
 /*                               RUN_GAME                                     */
 /******************************************************************************/
-void	run_game(t_game *game);
+void	check_move(t_game *game, int x, int y);	
 int		key_press(int key, t_game *game);
 void	print_moves(t_game *s_game);
 void	put_player_tile(t_game *game);
+void	run_game(t_game *game);
+void	put_tile(t_game *game, char tile, t_player_pos point, int img_index);
+void	render_move(t_game *game, char current, char next, t_player *player);
 
 /******************************************************************************/
 /*                               UTILS                                        */
 /******************************************************************************/
 
-void	check_args(int ac, char **argv);
 void	exit_error(char *error_message, t_game *game);
 char	*file_to_inline(char *filename);
 void	ft_free_array(char **array);
