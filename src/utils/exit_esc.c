@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_game.c                                         :+:      :+:    :+:   */
+/*   exit_esc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 11:18:46 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 17:47:41 by frocha-b         ###   ########.fr       */
+/*   Created: 2025/09/22 16:37:36 by frocha-b          #+#    #+#             */
+/*   Updated: 2025/09/22 17:20:53 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../libs/minilibx/mlx.h"
 
-void	run_game(t_game *game)
+int		exit_esc(t_game *game)
 {
-	mlx_hook(game->window, 2, 1L<<0, key_press, game);
-	mlx_hook(game->window, 17, 1L<<17, exit_esc, game);
-	mlx_loop(game->mlx);
+	ft_putstr_fd("Game finished!", 1);
+	ft_putstr_fd("\n", 1);
+	free_game(game);
+	exit(EXIT_SUCCESS);
 }

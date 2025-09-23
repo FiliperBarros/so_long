@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/12 13:37:46 by frocha-b          #+#    #+#              #
-#    Updated: 2025/09/22 11:45:26 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/09/22 18:33:33 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 #Compiler and flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g\
+CFLAGS = -Wall -Werror -Wextra -g -fPIE\
 		$(SO_LONG_INC) \
 		$(LIBFT_INC) \
 		$(MLX_INC)
@@ -54,10 +54,14 @@ SRC_FILES = \
 			validate_map.c \
 			key_press.c \
 			print_moves.c \
+			put_player_tile.c \
 			run_game.c \
 			check_args.c \
 			exit_error.c \
+			exit_esc.c \
+			exit_game.c \
 			file_to_inline.c \
+			free_game.c \
 			ft_free_array.c \
 			main.c
 

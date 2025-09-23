@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/22 12:53:12 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/22 19:20:04 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@
 # define F_XPM		"textures/0.xpm"
 # define E_XPM		"textures/E.xpm"
 # define C_XPM		"textures/C.xpm"
-# define P1_XPM		"textures/P.xpm"
-# define P2_XPM		"textures/P1.xpm"
-# define P3_XPM		"textures/P1.xpm"
-# define P4_XPM		"textures/P1.xpm"
-# define P5_XPM		"textures/P1.xpm"
-# define P6_XPM		"textures/P1.xpm"
+# define P_L_XPM	"textures/P.xpm"
+# define P_R_XPM	"textures/P1.xpm"
+# define P_U_XPM	"textures/P2.xpm"
+
 
 /******************************************************************************/
 /*                               ENUMS                                        */
@@ -49,7 +47,7 @@ typedef enum e_tile
 	COLLECTIBLE	= 'C',
 	PLAYER		= 'P',
 	VISITED		= 'V'
-}	t_tile;
+}				t_tile;
 
 typedef enum e_key
 {
@@ -60,14 +58,22 @@ typedef enum e_key
 	KEY_ESC		= 65307,
 	KEY_UP		= 65362,
 	KEY_LEFT	= 65361,
-	KEY_DOWN	= 65364,
+	KEY_DOWN	= 65364,	
 	KEY_RIGHT	= 65363,
-}	t_key;
+}				t_key;
+
+
+typedef enum e_img_index
+{
+	RUN_LEFT		= 0,
+	RUN_RIGHT		= 1,
+	GO_UP			= 2,
+	GO_DOWN			= 2,
+}					s_img_index;
 
 /******************************************************************************/
 /*                               STRUCTS                                      */
 /******************************************************************************/
-
 typedef struct s_player_pos
 {
 	int	x;
@@ -78,6 +84,9 @@ typedef struct s_player
 {
 	t_player_pos	current_pos;
 	t_player_pos	next_pos;
+	char			current_tile;
+	int				img_index;
+	int				collect;
 }					t_player;
 
 typedef struct s_map
@@ -109,7 +118,7 @@ typedef struct s_game
 	t_img			exit_img;
 	t_img			wall_img;
 	t_img			floor_img;
-	t_img			player_img;
+	t_img			player_img[3];
 	int				x;
 	int				y;
 }					t_game;
@@ -138,8 +147,9 @@ void	validate_map(t_game *game);
 /*                               RUN_GAME                                     */
 /******************************************************************************/
 void	run_game(t_game *game);
-void	key_press(int key, t_game *game);
+int		key_press(int key, t_game *game);
 void	print_moves(t_game *s_game);
+void	put_player_tile(t_game *game);
 
 /******************************************************************************/
 /*                               UTILS                                        */
@@ -151,5 +161,6 @@ char	*file_to_inline(char *filename);
 void	ft_free_array(char **array);
 void	free_game(t_game *game);
 void	exit_game(char *message, t_game *game);
+int		exit_esc(t_game *game);
 
 #endif

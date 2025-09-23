@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -23,8 +24,10 @@ static void	free_textures(t_game *game)
 		mlx_destroy_image(game->mlx, game->coltbl_img.img);
 	if (game->exit_img.img)
 		mlx_destroy_image(game->mlx, game->exit_img.img);
-	if (game->player_img.img)
-		mlx_destroy_image(game->mlx, game->player_img.img);
+	if (game->player_img[0].img)
+		mlx_destroy_image(game->mlx, game->player_img[0].img);
+	if (game->player_img[1].img)
+		mlx_destroy_image(game->mlx, game->player_img[1].img);
 }
 
 void	free_game(t_game *game)
