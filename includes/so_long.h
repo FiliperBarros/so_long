@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:37:38 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/23 14:05:14 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:00:12 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define C_XPM		"textures/C.xpm"
 # define P_L_XPM	"textures/P.xpm"
 # define P_R_XPM	"textures/P1.xpm"
-# define P_U_XPM	"textures/P2.xpm"
 
 /******************************************************************************/
 /*                               ENUMS                                        */
@@ -84,7 +83,6 @@ typedef struct s_player
 	t_player_pos	next_pos;
 	char			current_tile;
 	int				img_index;
-	int				collect;
 }					t_player;
 
 typedef struct s_map
@@ -97,8 +95,6 @@ typedef struct s_map
 typedef struct s_img
 {
 	void			*img;
-	int				width;
-	int				height;
 }					t_img;
 
 typedef struct s_game

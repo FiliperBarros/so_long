@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:27:04 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/23 13:09:25 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:03:25 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	check_walls(t_game	*game)
 	while (game->map.grid[i])
 	{
 		if (game->map.grid[i][0] != WALL)
-			exit_error("Error\nMap is not surrounded by walls!\n", game);
+			exit_error("Map is not surrounded by walls!", game);
 		if (game->map.grid[i][game->map.cols - 1] != WALL)
-			exit_error("Error\nMap is not surrounded by walls!\n", game);
+			exit_error("Map is not surrounded by walls!", game);
 		i++;
 	}
 	i = 0;
 	while (game->map.grid[0][i] && game->map.grid[game->map.rows - 1][i])
 	{
 		if (game->map.grid[0][i] != WALL)
-			exit_error("Error\nMap is not surrounded by walls!\n", game);
+			exit_error("Map is not surrounded by walls!", game);
 		if (game->map.grid[game->map.rows -1][i] != WALL)
-			exit_error("Error\nMap is not surrounded by walls!\n", game);
-		i++;
+				exit_error("Map is not surrounded by walls!", game);
+			i++;
 	}
 }

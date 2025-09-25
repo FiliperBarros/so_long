@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:28:03 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/09/23 13:09:14 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:01:55 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_map_size(t_game *game)
 	while (game->map.grid[i])
 	{
 		if (ft_strlen(game->map.grid[i]) != game->map.cols)
-			exit_error("Error\nNot a retangular map.\n", game);
+			exit_error("Error\nNot a retangular map.", game);
 		i++;
 	}
 	game->map.rows = i;
