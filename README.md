@@ -59,7 +59,7 @@ Run with:
 
 Example
 ```bash
-./solong map1.ber
+./so_long map1.ber
 ```
 
 
